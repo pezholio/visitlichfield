@@ -1,0 +1,11 @@
+; $Id: save_as_draft.info,v 1.4 2010/05/03 01:11:12 realityloop Exp $
+name = Save As Draft
+description = Allows saving of new node revisions(drafts) while existing revisions stay visible.
+core = 6.x
+
+; Information added by drupal.org packaging script on 2010-05-19
+version = "6.x-1.0-beta2"
+core = "6.x"
+project = "save_as_draft"
+datestamp = "1274236808"
+

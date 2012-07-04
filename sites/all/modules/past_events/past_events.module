@@ -1,0 +1,5 @@
+<?php
+
+function past_events_cron() {
+  db_query("UPDATE node LEFT JOIN content_field_dates on node.nid = content_field_dates.nid SET node.status = 0 WHERE node.type = 'event' AND field_dates_value2 < NOW() AND node.status = 1");
+}

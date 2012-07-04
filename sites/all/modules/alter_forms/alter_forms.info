@@ -1,0 +1,5 @@
+; $Id$
+name = Alter Forms
+description = Alter forms so vocabularies go with the flow!
+core = 6.x
+package = Custom

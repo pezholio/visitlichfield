@@ -1,0 +1,5 @@
+; $Id$
+name = Past events
+description = A cron hook which looks for old events and makes them 'not live'
+core = 6.x
+package = Event

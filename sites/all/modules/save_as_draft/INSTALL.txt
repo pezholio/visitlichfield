@@ -1,0 +1,15 @@
+$Id: INSTALL.txt,v 1.3 2010/05/03 01:11:12 realityloop Exp $
+
+Save As Draft module installation instructions
+
+1. Copy this directory to a suitable modules directory, such as 
+    sites/all/modules/
+
+2. Enable the module at: Administer > Site building > Modules
+
+3. Edit the content type you wish to add the functionality to: Administer > Content Management > Content Types
+    a. Enable the 'Save As Draft' setting on the appropriate content type
+
+4. Set the appropriate permissions at: Administer > User Management > Access Control
+    a. To best use this module the role needs "view revisions", "revert revisions" permissions
+    b. Additional functionality is visible if the user has "administer nodes" or http://drupal.org/project/override_node_options enabled with "override [nodetype] published option" for the node types that you want the editor to save drafts for.

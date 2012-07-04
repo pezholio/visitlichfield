@@ -1,0 +1,372 @@
+<?php
+// $Id: save_as_draft.module,v 1.6 2010/05/03 01:11:12 realityloop Exp $
+
+/**
+ * @file
+ * Allows saving of new node revisions(drafts) while existing revisions stay visible.
+ */
+
+ /**
+ * Implementation of hook_help().
+ */
+
+function save_as_draft_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help/save_as_draft':
+      $output = '<p>'. t('Administrators, make sure you have:
+        <ol>
+        <li>Enabled the \'Save As Draft\' setting on the appropriate content type</li>
+        <li>Set the appropriate permissions at: Administer > User Management > Access Control</li>
+        </ol>
+				Users:
+        <ol>
+        <li>When modifying a node the user may decide not to publish their current changes
+        they can then check the Save As Draft checkbox, and then submit the node.</li>
+        <li>The changes will be stored in a future revision, draft, that can be published at a later date.</li>
+        <li>Every time the node is saved with the Save As Draft checkbox checked, a new \'future\' revision will be created.</li>
+        <li>Each time the user edits the node the most current revision will be used (even if this is not the \'active\' revision)</li>
+        <li>To release a draft the user can simply edit the node, uncheck the Save As Draft checkbox and submit the node. They may also use the Secondary Method below.</li>
+        </ol>') .'</p>';
+      $output .= '<p>'. t('Secondary Method:<br />
+        <ol><li>
+				Through either the Pending drafts block, or the "Drafts" tab at Administer >> Content >> Content, click on the title of a node with pending drafts. This will take you to a page showing all the revisions, including drafts, for that node.
+        </li><li>
+				Click on the title of any revision, or draft, to view its contents and check it over.
+        </li><li>
+				If the changes are found acceptable, click "Publish revision" at the top of the post. This will be made the new active revision.
+				</li></ol>') .'</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implementation of hook_menu().
+ */
+function save_as_draft_menu() {
+  $items = array();
+
+  // An admin page listing all nodes with draft revisions.
+  $items['admin/content/node/drafts'] = array(
+    'title' => 'Drafts',
+    'page callback' => 'save_as_draft_pending_drafts_admin',
+    'type' => MENU_LOCAL_TASK,
+    'access arguments' => array('access save as draft'),
+  );
+
+/*    if (arg(0) == 'node' && is_numeric(arg(1))) {
+  $node = node_load(arg(1));
+  $access = array('administer nodes') || (user_access('view revisions') && node_access('update', $node));*/
+  // Callback to allow users to edit revisions.
+  $items['node/%/revisions/%/edit'] = array(
+    'title' => 'Edit revision',
+    'page callback' => 'save_as_draft_edit',
+    'page arguments' => array(1, 3),
+    'access arguments' => array('access save as draft'),
+    'type' => MENU_CALLBACK,
+  );
+
+  // Callback to allow users to publish revisions directly.
+  $items['node/%/revisions/%/publish'] = array(
+    'title' => 'Publish revision',
+    'page callback' => 'save_as_draft_publish',
+    'page arguments' => array(1, 3),
+    'access arguments' => array('access save as draft'),
+    'type' => MENU_CALLBACK,
+  );
+//    }
+
+  return $items;
+}
+
+/**
+ * Implementation of hook_perm().
+ */
+function save_as_draft_perm() {
+  return array('access save as draft');
+}
+
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function save_as_draft_form_alter(&$form, &$form_state, $form_id) {
+  // Only show the checkbox if user has 'access save as draft' privileges and the function is enabled for this content type.
+  if (isset($form['type'])) {
+    $node = $form['#node'];
+    if (user_access('access save as draft') && $form['type']['#value'] .'_node_form' == $form_id && variable_get("save_as_draft_$node->type", FALSE)) {
+      $form['buttons']['save_as_draft'] = array(
+        '#type'           => 'checkbox',
+        '#title'          => t('Save this edit as a draft'),
+        '#disabled'  => TRUE,
+        '#description'    => t('Check this box to save your changes without making them visible to site visitors.'),
+        '#required'       => FALSE,
+        '#weight'         => -1,
+      );
+      // Disable save as draft on node creation
+      if ($form['nid']['#value'] != NULL) {
+        $form['buttons']['save_as_draft']['#disabled'] = FALSE;
+        $form['buttons']['save_as_draft']['#default_value'] = $node->save_as_draft;
+      }
+    }
+  }
+
+  // Also add option to node settings form.
+  if ($form_id == 'node_type_form' && isset($form['identity']['type'])) {
+    $form['workflow']['save_as_draft'] = array(
+      '#type' => 'radios',
+      '#title' => t('Save As Draft Options'),
+      '#default_value' => variable_get('save_as_draft_'. $form['#node_type']->type, 0),
+      '#options' => array(t('Disabled'), t('Enabled')),
+    );
+  }
+}
+
+/**
+ * Implementation of hook_nodeapi().
+ */
+function save_as_draft_nodeapi(&$node, $op, $teaser = NULL, $page = NULL) {
+  switch ($op) {
+    case 'presave':
+      // Auto enable revision on nodes when Save as Draft is checked.
+      if ($node->save_as_draft == TRUE) {
+        $node->revision = TRUE;
+      }
+    break;
+    case 'insert':
+      // Store save as draft setting of this node.
+      db_query('INSERT INTO {save_as_draft} (nid, save_as_draft) VALUES (%d, %d)', $node->nid, $node->save_as_draft);
+      break;
+    case 'update':
+      // Update save as draft setting of this node.
+      db_query('DELETE FROM {save_as_draft} WHERE nid = %d', $node->nid);
+      db_query('INSERT INTO {save_as_draft} (nid, save_as_draft) VALUES (%d, %d)', $node->nid, $node->save_as_draft);
+      break;
+    case 'delete':
+      // Delete record from save_as_draft table when node is deleted.
+      db_query('DELETE FROM {save_as_draft} WHERE nid = %d', $node->nid);
+      break;
+    case 'load':
+      // Set a save_as_draft property which can be checked later.
+      $node->save_as_draft = db_result(db_query('SELECT save_as_draft FROM {save_as_draft} WHERE nid = %d', $node->nid));
+      break;
+    case 'view':
+      // Display more descriptive message at the top of node revision views, including operations
+      // that the current user has available to them.
+      $current_vid = db_result(db_query('SELECT vid FROM {node} WHERE nid = %d', $node->nid));
+      if ($node->vid != $current_vid) {
+        drupal_set_message(t('You are currently viewing a revision of this post created on @date by @author.', array('@date' => format_date($node->changed, 'small'), '@author' => $node->name)));
+        if (node_access('update', $node)) {
+          drupal_set_message(l(t('Edit latest draft revision'), "node/$node->nid/edit"));
+        }
+        $typecheck = 'override ' . $node->type . ' published option';
+        if ((user_access('administer nodes') || user_access($typecheck)) && user_access('revert revisions')) {
+          // If this revision is old, show an option to revert to it.
+          // Otherwise, show an option to publish it.
+          if ($node->vid < $current_vid) {
+            drupal_set_message(l(t('Revert to revision'), "node/$node->nid/revisions/$node->vid/revert"));
+          }
+          else {
+            drupal_set_message(l(t('Publish revision'), "node/$node->nid/revisions/$node->vid/publish"));
+          }
+          if (user_access('administer nodes')) {
+            drupal_set_message(l(t('Delete revision'), "node/$node->nid/revisions/$node->vid/delete"));
+          }
+        }
+      }
+      elseif ($node->save_as_draft == 1) {
+        // Notify admin if a node has pending revisions.
+        if (user_access('view revisions') && arg(2) != 'revisions' && save_as_draft_get_node_pending_drafts($node->nid)) {
+          drupal_set_message(t($node->title .' has one or more draft revisions: <a href="@list">view list of revisions</a>.', array('@list' => url("node/$node->nid/revisions"))));
+        }
+      }
+      break;
+  }
+
+  // Only do this logic for non-admin users on nodes with save as draft
+  // turned on.
+  if (isset($node->nid) && $node->save_as_draft == 1 && (user_access('access save as draft'))) {
+    switch ($op) {
+      case 'prepare':
+        // If user has a pending revision for this node, load the latest version of
+        // it instead.
+        if ($revisions = save_as_draft_get_node_pending_drafts($node->nid)) {
+          global $user;
+          foreach ($revisions as $revision) {
+            if ($revision->uid == $user->uid) {
+              drupal_set_message(t('Editing your latest revision, which is still in draft \'mode\'.'));
+              $node = node_load($node->nid, $revision->vid);
+              break;
+            }
+            else{
+              $editor=user_load($revision->uid);
+              $username=$editor->name;
+              drupal_set_message(t('Editing latest revision, which is still in draft \'mode\' and was created by ' . $username . '.'));
+              $node = node_load($node->nid, $revision->vid);
+              break;
+            }
+          }
+        }
+        break;
+      case 'presave':
+        $current_vid = db_result(db_query('SELECT vid FROM {node} WHERE nid = %d', $node->nid));
+        $node->original_node = node_load($node->nid, $current_vid);
+        break;
+      case 'update':
+        if (isset($node->original_node)) {
+          // Update node table's vid to the original value.
+          db_query("UPDATE {node} SET vid = %d, title = '%s', status = %d, moderate = %d WHERE nid = %d", $node->original_node->vid, $node->original_node->title, $node->original_node->status, $node->original_node->moderate, $node->nid);
+          drupal_set_message(t('Your changes have been saved as a draft.'));
+        }
+        break;
+    }
+  }
+}
+
+/**
+ * Implementation of hook_block().
+ */
+function save_as_draft_block($op = 'list', $delta = 0, $edit = array()) {
+  if ($op == 'list') {
+    $blocks[0]['info'] = t('Pending drafts');
+
+    return $blocks;
+  }
+  elseif ($op == 'view') {
+    $block = array();
+
+    if (user_access('access save as draft')) {
+      $output = '';
+      $list = array();
+
+      $nodes = save_as_draft_get_all_pending_drafts(10);
+      if (count($nodes)) {
+        foreach ($nodes as $node) {
+          if (node_access('update', $node)) {
+            $list[] = l($node->title, "node/$node->nid/revisions/$node->vid/view");
+          }
+        }
+        $output .= theme('item_list', $list);
+        $output .= '<p>'. l(t('View all pending drafts'), 'admin/content/node/drafts') .'</p>';
+      }
+      else {
+        $output .= t('No pending drafts found.');
+      }
+
+      $block['subject'] = t('Pending drafts');
+      $block['content'] = $output;
+    }
+
+    return $block;
+  }
+}
+
+/**
+ * Menu callback; displays list of nodes with pending revisions.
+ */
+function save_as_draft_pending_drafts_admin() {
+  $nodes = save_as_draft_get_all_pending_drafts(50);
+  if (count($nodes)) {
+    $header = array(
+      t('Title'),
+      t('Type'),
+      t('Updated by'),
+      t('Last updated'),
+    );
+    $rows = array();
+    foreach ($nodes as $node) {
+      $rows[] = array(
+        l($node->title, "node/$node->nid/revisions/$node->vid/view"),
+        $node->type,
+        theme('username', user_load(array('uid' => $node->uid))),
+        format_date($node->timestamp),
+      );
+    }
+    return theme('table', $header, $rows);
+  }
+  else {
+    return t('No pending revisions found.');
+  }
+}
+
+/**
+ * Retrieve list of all pending revisions.
+ *
+ * @param $limit
+ *  The number of pending revisions to retrieve.
+ */
+function save_as_draft_get_all_pending_drafts($limit) {
+  // Obtain a list of nodes with revisions higher than current published revision.
+  $sql = "SELECT n.nid, r.vid, n.type, r.title, r.body, r.uid, r.timestamp FROM {node} n INNER JOIN {node_revisions} r ON n.nid = r.nid WHERE r.vid > n.vid ORDER BY r.vid LIMIT %d";
+  $result = db_query($sql, $limit);
+  $revisions = array();
+  while ($revision = db_fetch_object($result)) {
+    $revisions[$revision->nid] = $revision;
+  }
+
+  return $revisions;
+}
+
+/**
+ * Retrieve list of all pending revisions for a given node.
+ *
+ * @param $nid
+ *  The node ID to retrieve.
+ */
+function save_as_draft_get_node_pending_drafts($nid) {
+  // Obtain a list of revisions higher than current published revision for a given node.
+  $sql = "SELECT n.nid, r.vid, r.uid FROM {node} n INNER JOIN {node_revisions} r ON n.nid = r.nid WHERE r.vid > n.vid AND n.nid = %d ORDER BY r.vid DESC";
+  $result = db_query($sql, $nid);
+  $revisions = array();
+  while ($revision = db_fetch_object($result)) {
+    $revisions[$revision->vid] = $revision;
+  }
+
+  return $revisions;
+}
+
+/**
+ * Menu callback; edit revision.
+ */
+function save_as_draft_edit($nid, $vid) {
+  $node = node_load($nid, $vid);
+  module_load_include('inc', 'node', 'node.pages');
+  drupal_set_message(t('You are currently editing a revision of this post created on @date by @author.', array('@date' => format_date($node->changed, 'small'), '@author' => $node->name)));
+  return drupal_get_form($node->type .'_node_form', $node);
+}
+
+/**
+ * Menu callback; publish revision directly.
+ */
+function save_as_draft_publish($nid, $vid) {
+  $node = node_load($nid, $vid);
+  db_query("UPDATE {node} SET vid = %d, title = '%s' WHERE nid = %d", $vid, $node->title, $nid);
+  drupal_set_message(t('The selected revision has been published.'));
+  watchdog('content', '@type: published %title revision %revision', array('@type' => t($node->type), '%title' => $node->title, '%revision' => $vid), WATCHDOG_NOTICE, l(t('view'), "node/$nid/revisions/$vid/view"));
+  drupal_goto("node/$nid");
+}
+
+/**
+ * Implementation of hook_token_values().
+ */
+function save_as_draft_token_values($entity_type, $object = NULL) {
+  $values = array();
+  if ($entity_type == 'node') {
+    $values['vid'] = $object->vid;
+    $values['save_as_draft'] = $object->save_as_draft ? t('on') : t('off');
+    $values['revision'] = $object->revision ? t('on') : t('off');
+  }
+  return $values;
+}
+
+/**
+ * Implementation of hook_token_list().
+ */
+function save_as_draft_token_list($entity_type = 'all') {
+  if ($entity_type == 'node') {
+    $tokens = array();
+    $tokens['node']['vid'] = t('Node revision ID');
+    $tokens['node']['save_as_draft'] = t('Whether save as draft is on. (@on/@off)', array('@on' => t('on'), '@off' => t('off')));
+    $tokens['node']['revision'] = t('Whether a new revision is to be created. (@on/@off)', array('@on' => t('on'), '@off' => t('off')));
+    return $tokens;
+  }
+}

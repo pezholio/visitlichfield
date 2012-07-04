@@ -1,0 +1,4 @@
+name = "My Flickr"
+description = "My flickr example"
+core = 6.x
+php = 5.1

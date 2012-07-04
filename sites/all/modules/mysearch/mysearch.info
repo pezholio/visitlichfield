@@ -1,0 +1,4 @@
+; $Id$
+name = My Search
+description = Provides a themehook to override the default search
+core = 6.x

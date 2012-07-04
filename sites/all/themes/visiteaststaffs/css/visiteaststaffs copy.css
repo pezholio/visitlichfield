@@ -1,0 +1,256 @@
+body {
+	background: transparent url('../images/body.png') fixed center repeat-x !important;
+	font-family: Myriad pro, Arial, Helvetica, Tahoma, sans-serif;
+	color: #754c28;
+}
+
+#page-wrapper {
+	width: 990px;
+	background: transparent url('../images/bg.png') fixed center no-repeat !important;
+	position: relative;
+	top: 20px;
+}
+
+#page {
+	margin: 0 auto;
+	width: 900px !important;
+}
+
+#nice-menu-1 {
+	width: auto !important;
+	background: none !important;
+	border-bottom: 2px solid #d6de23;
+	padding: 10px 0 5px 0 !important;
+	font-size: 1em !important;
+	font-family: Georgia, serif;
+	font-style: italic;
+	font-weight: bold;
+	}
+	
+#nice-menu-1 ul {
+	margin: 0 !important;
+	padding: 0 !important;
+	}
+	
+ul.nice-menu li a:link, #ul.nice-menu li a:visited {
+	border-left: 1px solid #d6de23 !important;
+	color: #754d29 !important;
+	}
+
+ul.nice-menu li.menu-272 a:link, ul.nice-menu li.menu-272 a:visited {
+	border: none !important;
+	}
+	
+ul.nice-menu li a.active {
+	color: #38b44a !important;
+	}
+	
+h1, h2, h3 {
+	font-family: Georgia, serif;
+	font-style: italic;
+	font-weight: normal;
+	}
+	
+h1 {
+	background-color: #38b44a;
+	width: 312px;
+	height: 115px;
+	font-size: 3em !important;
+	background: transparent url(../images/head.png) top left no-repeat;
+	font-style: normal;
+	font-weight: bold;
+	}
+	
+h1 a {
+	color: #fff !important;
+	margin: 15px 40px;
+	float: left;
+	line-height: 0.9em;
+	}
+	
+h1 a span {
+	font-size: 0.8em;
+	font-style: italic;
+	color: #dce124;
+	padding-right: 45px;
+	background: transparent url(../images/butterfly.png) top right no-repeat;
+	float: left;
+	margin: 0 0 0 30px;
+	}
+	
+#site-slogan {
+	font-size: 2.5em;
+	font-style: italic;
+	font-weight: lighter;
+	float: left;
+	text-transform: lowercase;
+	color: #754d29;
+	position: absolute;
+	left: 380px;
+	top: 60px;
+	font-family: Georgia, serif;
+	}
+	
+#translate {
+	position: absolute;
+	right: 60px;
+	top: 20px;
+}
+
+#translate img {
+	margin-left: 5px;
+	}
+	
+#search {
+	position: absolute;
+	right: 60px;
+	top: 60px;
+	}
+	
+#search label {
+	position: absolute;
+	left: -1000em;
+	}
+	
+#edit-search-theme-form-1 {
+	border: 1px solid #754d29;
+	font-size: 1.1em;
+	padding: 2px;
+	width: 180px;
+	}
+	
+#search #edit-submit {
+	font-size: 1em;
+	padding: 5px 10px;
+	color: #d6de23;
+	background-color: #754d29;
+	border: none;
+	font-family: Georgia, serif;
+	font-style: italic;
+	font-weight: bold;
+	}
+	
+.welcome h3 {
+	font-size: 2em;
+	color: #754c28;
+	}
+	
+.welcome #leaf {
+	margin: 0 0 0 7px;
+	padding: 0;
+	float: right;
+	}
+	
+.welcome #map {
+	margin: 0 0 0 7px;
+	padding: 0;
+	float: right;
+	}
+	
+.welcome p {
+	font-size: 0.9em;
+	}
+	
+.news, .events {
+	width: 268px;
+	height: 252px;
+	background: transparent url(../images/newseventsbg.png) no-repeat;
+	padding: 16px;
+	}
+	
+.news .pane-title {
+	font-size: 1.2em;
+	padding: 7px 15px;
+	color: #fff;
+	background: transparent url(../images/newsbg.png) left no-repeat;
+	font-weight: bold;
+	}
+	
+.events .pane-title {
+	font-size: 1.2em;
+	padding: 7px 15px;
+	color: #fff;
+	background: transparent url(../images/eventsbg.png) left no-repeat;
+	font-weight: bold;
+	}
+	
+.news .eventdate a {
+	color: #754c28;
+	padding: 0;
+	margin: 0;
+	}
+	
+.news p, .events p {
+	margin: 2px 0;
+	padding: 0;
+	color: #754c28;
+	}
+	
+.news a, .events a {
+	color: #754c28;
+	}
+	
+.news .eventdate {
+	font-family: Myriad pro, Arial, Helvetica, Tahoma, sans-serif;
+	font-size: 1em;
+	color: #754c28;
+	margin: 7px 0 5px 0;
+	padding: 0;
+	font-weight: bold;
+	font-style: normal;
+	}
+	
+.news .date, .events .eventdate {
+	margin: 7px 0 5px 0;
+	padding: 0;
+	color: #009345;
+	font-style: italic;
+	font-family: Georgia, serif;
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.news .links, .events .links, .homepagead .links {
+	display: none !important;
+	}
+	
+.homeimage {
+	padding: 10px;
+	background: transparent url(../images/homeimagebg.png) center no-repeat !important;
+	margin: 30px 0 10px 0 !important;
+	}
+	
+.mainimage {
+	display: none;
+	position: relative;
+	color: #fff;
+	text-decoration: none;
+	}
+	
+.mainimage span {
+	position: absolute;
+	bottom: 40px;
+	right: 20px;
+	font-family: Georgia, serif;
+	font-size: 1.4em;
+	font-style: italic;
+	font-weight: bold;
+	padding-right: 35px;
+	background: transparent url(../images/featurearrow.png) right no-repeat;
+	line-height: 30px;
+	}
+	
+.mainimage.visible {
+	display: block;
+	}
+	
+.smallhomeimage {
+	padding: 5px 10px;
+	background: transparent url(../images/smallfeatureborder.png) center no-repeat !important;
+	margin-right: 6px;
+	cursor: pointer;
+	}
+	
+.image4 {
+	margin-right: 0 !important;
+	}

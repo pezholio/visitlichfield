@@ -1,0 +1,7 @@
+sites/default/settings.php
+cache/*
+stats/*
+sites/visiteaststaffordshire.co.uk/settings.php
+sites/default/files/*
+sites/visiteaststaffordshire.co.uk/files/*
+.DS_Store

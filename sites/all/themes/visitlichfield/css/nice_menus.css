@@ -1,0 +1,118 @@
+.nice-menu-hide-title {
+	display: none;
+	}
+	
+#nice-menu-1 {
+	width: 905px;
+	margin: 0 7px;
+	font-size: 0.85em;
+	padding: 12px 25px 0 25px !important;
+	background: transparent url(../images/navtop.png) top center no-repeat;
+	list-style-type: none;
+	}
+	
+ul.nice-menu li {
+	border: none;
+	margin: 10px 0 0 0;
+	text-align: center;
+	position: relative;
+	float: left;
+	}
+	
+ul.nice-menu li a:link, ul.nice-menu li a:visited {
+	color: #111;
+	text-decoration: none;
+	padding: 0 5px;
+	border-left: 1px dotted #111;
+	}
+	
+ul.nice-menu li a:focus, ul.nice-menu li a:hover, ul.nice-menu li a:active {
+	color: #65669e;
+	}
+	
+#menu-272 a {
+	border: none !important;
+	}
+	
+ul.nice-menu-down li.menuparent {
+	background: none !important;
+	}
+	
+.menuparent a {
+	background: none !important;
+	}
+	
+ul.nice-menu-down li {
+	padding-bottom: 10px;
+	}
+	
+ul.nice-menu-down li ul {
+	border-top: 0 !important;
+	text-align: center;
+	background: #fff url(../images/navdrop.png) center top no-repeat;
+	padding: 25px 0 13px 0;
+	-moz-box-shadow:2px 4px 4px #666;
+    -webkit-box-shadow:2px 4px 4px #666;
+    box-shadow:2px 4px 4px #666;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color='#eee', Direction=45, Strength=1);
+    width: 174px;
+    position: absolute !important;
+    margin-top: 10px;
+	}
+		
+ul.nice-menu-down li.menu-272 ul {
+	left: -62px !important;
+	}
+	
+ul.nice-menu-down li.menu-273 ul {
+	left: -52px !important;
+	}
+	
+ul.nice-menu-down li.menu-274 ul {
+	left: -47px !important;
+	}
+	
+ul.nice-menu-down li.menu-275 ul {
+	left: -29px !important;
+	}
+	
+ul.nice-menu-down li.menu-276 ul {
+	left: -51px !important;
+	}
+	
+ul.nice-menu-down li.menu-277 ul {
+	left: -59px !important;
+	}
+	
+ul.nice-menu-down li.menu-278 ul {
+	left: -33px !important;
+	}
+	
+ul.nice-menu-down li.menu-279 ul {
+	left: -10px !important;
+	}
+	
+ul.nice-menu-down li.menu-958 ul {
+	left: -4px !important;
+	}
+	
+ul.nice-menu-down li.menu-280 ul {
+	left: -40px !important;
+	}
+	
+ul.nice-menu-down li ul li {
+	padding: 0;
+	margin: 0 0 12px 0;
+	width: 100%;
+	text-align: center;
+	font-size: 1.05em;
+	}
+	
+ul.nice-menu-down li ul li a {
+	border: none !important;
+	color: #65669e !important;
+}
+
+ul.nice-menu-down li ul li a:hover {
+	text-decoration: underline;
+	}

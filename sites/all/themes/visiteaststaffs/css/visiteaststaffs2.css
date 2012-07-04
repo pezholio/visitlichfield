@@ -1,0 +1,841 @@
+body {
+	background: transparent url('../images/body.png') fixed center repeat-x !important;
+	font-family: Myriad pro, Arial, Helvetica, Tahoma, sans-serif;
+	color: #754c28;
+}
+
+#page-wrapper {
+	width: 1020px;
+	background: transparent url('../images/bg2.png') fixed center no-repeat !important;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	padding-bottom: 20px;
+}
+
+#page {
+	margin: 0 0 0 45px;
+	width: 900px !important;
+	position: relative;
+}
+
+#nice-menu-1 {
+	width: auto !important;
+	background: none !important;
+	border-bottom: 2px solid #d6de23;
+	padding: 10px 0 5px 0 !important;
+	font-size: 1em !important;
+	font-family: "Constantia","Lucida Bright","Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif;
+	font-style: italic;
+	font-weight: bold;
+	}
+	
+ul.nice-menu li a {
+	border-left: 1px solid #d6de23 !important;
+	color: #754d29 !important;
+	}
+
+ul.nice-menu li.menu-272 a:link, ul.nice-menu li.menu-272 a:visited {
+	border: none !important;
+	}
+	
+ul.nice-menu li a.active {
+	color: #38b44a !important;
+	}
+	
+ul.nice-menu-down li ul {
+	margin: 5px 0 !important;
+	background-image: none !important;
+	font-family: Myriad pro, Arial, Helvetica, Tahoma, sans-serif;
+	font-style: normal !important;
+	font-size: 0.9em !important;
+	padding: 12px 5px !important;
+	border: 1px solid #d6de23 !important;
+	font-weight: normal !important;
+	}
+	
+ul.nice-menu-down li.menu-272 ul, ul.nice-menu-down li.menu-273 ul, ul.nice-menu-down li.menu-274 ul, ul.nice-menu-down li.menu-275 ul, ul.nice-menu-down li.menu-276 ul, ul.nice-menu-down li.menu-277 ul, ul.nice-menu-down li.menu-278 ul, ul.nice-menu-down li.menu-958 ul {
+	left: 0 !important;
+	}
+		
+ul.nice-menu-down ul li {
+	text-align: left !important;
+	padding: 0 0 5px 0 !important;
+	margin: 0 !important;
+	}
+	
+ul.nice-menu-down li ul li a:link, ul.nice-menu-down li ul li a:visited {
+	border: none !important;
+	color: #754d29 !important;
+	}
+	
+h1, h2, h3 {
+	font-family: "Constantia","Lucida Bright","Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif;
+	font-style: italic;
+	font-weight: normal;
+	}
+	
+#site-name {
+	font-family: "Constantia","Lucida Bright","Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif;
+	background-color: #38b44a;
+	width: 312px;
+	height: 115px;
+	font-size: 3em !important;
+	background: transparent url(../images/head.png) top left no-repeat;
+	font-style: normal;
+	font-weight: bold;
+	}
+	
+#site-name a.eaststaffs {
+	color: #fff !important;
+	margin: 0 40px;
+	float: left;
+	line-height: 0.9em;
+	}
+	
+#site-name a.enjoy {
+	font-size: 0.8em;
+	font-style: italic;
+	color: #dce124;
+	padding-right: 45px;
+	background: transparent url(../images/butterfly.png) top right no-repeat;
+	float: left;
+	margin: 15px 0 0 70px;
+	line-height: 1.2em;
+	}
+	
+a:link, a:visited {
+	color: #754c28;
+	}
+	
+a:focus, a:hover, a:active {
+	color: #111;
+	}
+	
+#site-slogan {
+	font-size: 2.5em;
+	font-style: italic;
+	font-weight: lighter;
+	float: left;
+	text-transform: lowercase;
+	color: #754d29;
+	position: absolute;
+	left: 320px;
+	top: 60px;
+	font-family: "Constantia","Lucida Bright","Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif;
+	}
+	
+#translate {
+	position: absolute;
+	right: 0px;
+	top: 20px;
+}
+
+#translate img {
+	margin-left: 5px;
+	}
+	
+#search {
+	position: absolute;
+	right: 0;
+	top: 60px;
+	}
+	
+#search label {
+	position: absolute;
+	left: -1000em;
+	}
+	
+#edit-search-theme-form-1 {
+	border: 1px solid #754d29;
+	font-size: 1.1em;
+	padding: 2px;
+	width: 180px;
+	}
+	
+#search #edit-submit {
+	font-size: 1em;
+	padding: 5px 10px;
+	color: #d6de23;
+	background-color: #754d29;
+	border: none;
+	font-family: "Constantia","Lucida Bright","Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif;
+	font-style: italic;
+	font-weight: bold;
+	}
+	
+.welcome h3 {
+	font-size: 2em;
+	color: #754c28;
+	margin: 0 0 7px 0;
+	}
+	
+.welcome #leaf {
+	margin: 0 0 0 7px;
+	padding: 0;
+	float: right;
+	}
+	
+.welcome #map {
+	margin: 0 0 0 7px;
+	padding: 0;
+	float: right;
+	}
+	
+.welcome p {
+	font-size: 0.9em;
+	}
+	
+.news, .events {
+	width: 268px;
+	background: transparent url(../images/newseventsbg.png) no-repeat;
+	padding: 16px;
+	margin-bottom: 30px;
+	}
+	
+.news .pane-title {
+	font-size: 1.2em;
+	padding: 7px 15px;
+	color: #fff;
+	background: transparent url(../images/newsbg.png) left no-repeat;
+	font-weight: bold;
+	}
+	
+.events .pane-title {
+	font-size: 1.2em;
+	padding: 7px 15px;
+	color: #fff;
+	background: transparent url(../images/eventsbg.png) left no-repeat;
+	font-weight: bold;
+	}
+	
+.pane-title a:link, .pane-title a:visited, .pane-title a:focus, .pane-title a:hover, .pane-title a:active {
+	color: #fff !important;
+	text-decoration: none !important;
+	display: block;
+	width: 100%;
+	}
+	
+.news .eventdate a {
+	color: #754c28;
+	padding: 0;
+	margin: 0;
+	}
+	
+.news p, .events p {
+	margin: 2px 0;
+	padding: 0;
+	color: #754c28;
+	}
+	
+.news .eventdate {
+	font-family: Myriad pro, Arial, Helvetica, Tahoma, sans-serif;
+	font-size: 1em;
+	color: #754c28;
+	margin: 7px 0 5px 0;
+	padding: 0;
+	font-weight: bold;
+	font-style: normal;
+	}
+	
+.news .date, .events .eventdate {
+	margin: 7px 0 5px 0;
+	padding: 0;
+	color: #009345;
+	font-style: italic;
+	font-family: "Constantia","Lucida Bright","Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif;
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.news .links, .events .links, .homepagead .links, .adverts .links {
+	display: none !important;
+	}
+	
+.homeimage {
+	padding: 10px;
+	background: transparent url(../images/homeimagebg.png) center no-repeat !important;
+	margin: 10px 0 10px 0 !important;
+	}
+	
+a.mainimage {
+	display: none;
+	position: relative;
+	color: #fff;
+	text-decoration: none;
+	}
+	
+.mainimage span {
+	position: absolute;
+	bottom: 40px;
+	right: 20px;
+	font-family: "Constantia","Lucida Bright","Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif;
+	font-size: 1.4em;
+	font-style: italic;
+	font-weight: bold;
+	padding-right: 35px;
+	background: transparent url(../images/featurearrow.png) right no-repeat;
+	line-height: 30px;
+	}
+	
+.mainimage.visible {
+	display: block;
+	}
+	
+.smallhomeimage {
+	padding: 5px 10px;
+	background: transparent url(../images/smallfeatureborder.png) center no-repeat !important;
+	margin-right: 6px;
+	cursor: pointer;
+	}
+	
+.image4 {
+	margin-right: 0 !important;
+	}
+	
+.adverts {
+	padding-left: 5px;
+	}
+	
+#foot {
+	border-top: 1px solid #d6de23;
+	border-bottom: 1px solid #d6de23;
+	padding: 10px;
+	position: relative;
+	font-size: 0.95em;
+	}
+	
+#foot #esbc {
+	position: absolute;
+	left: 0;
+	top: 20px;
+	}
+	
+#foot #social {
+	position: absolute;
+	right: 0;
+	top: 20px;
+	}
+	
+#foot #social a:link, #foot #social a:visited {
+	text-decoration: none;
+	}
+	
+#foot #social img {
+	padding-left: 5px;
+	}
+	
+#foot ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	left: 240px;
+	}
+	
+#foot ul li {
+	float: left;
+	margin-right: 12px;
+	}
+	
+#foot p {
+	text-align: center;
+	margin-top: 35px;
+	}
+	
+#content-area {
+	position: relative;
+	padding: 30px 0 0 0;
+	}
+	
+.listview {
+	background: transparent url(../images/listleaf.png) 640px bottom no-repeat !important;
+	min-height: 850px !important;
+	}
+	
+#itemview {
+	padding-right: 290px;
+	background: transparent url(../images/leaf2.png) 640px bottom no-repeat;
+	min-height: 850px;
+	}
+	
+.homepage {
+	padding: 0 290px 0 0;
+	margin: 0;
+	background: transparent url(../images/flower1.png) 680px bottom no-repeat !important;
+	}
+
+#node-467 .homepage {
+	min-height: 600px !important;
+	}
+	
+#node-331 .homepage {
+	min-height: 500px !important;
+	}
+	
+#node-332 .homepage {
+	min-height: 420px !important;
+	}
+	
+#node-521 .homepage {
+	min-height: 450px !important;
+	}
+	
+#node-335 .homepage {
+	min-height: 600px !important;
+	}
+	
+#node-337 .homepage {
+	min-height: 400px !important;
+	}
+	
+#itemview.map {
+	min-height: 950px !important;
+	}
+	
+.homepage h2 {
+	font-size: 2.6em;
+	font-style: normal;
+	margin: 0 0 7px 0;
+	padding: 0;
+	}
+	
+.homepage h3 {
+	font-size: 2.2em;
+	font-style: normal;
+	margin: 0 0 7px 0;
+	}
+	
+.homepage img {
+	border: 7px solid #fff;
+	margin: 0 0 12px 12px;
+	}
+	
+#eventsearch {
+	border: none;
+	padding: 0;
+	margin: 0;
+	}
+	
+#eventsearch legend {
+	font-size: 1.8em;
+	padding: 12px 0 14px 0 !important;
+	font-family: "Constantia","Lucida Bright","Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif;
+	color: #754d29;
+	margin: 0;
+	}
+	
+#eventsearch .field, #eventsearch select {
+	border: 1px solid #754d29;
+	font-size: 1.1em;
+	padding: 2px;
+	width: 250px;
+	}
+	
+#eventsearch small {
+	font-size: 0.8em;
+	}
+	
+#eventsearch label {
+	margin-top: 20px;
+	}
+	
+#eventsearch .form-submit {
+	font-size: 1em;
+	padding: 5px 10px;
+	color: #d6de23;
+	background-color: #754d29;
+	border: none;
+	font-family: "Constantia","Lucida Bright","Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif;
+	font-style: italic;
+	font-weight: bold;
+	float: left;
+	clear: both;
+	}
+
+#subnav {
+	position: relative;
+	right: 0;
+	top: 0;
+	float: right;
+	margin: 0 0 0 30px;
+	}
+	
+#cats {
+	width: 260px;
+	list-style-type: none;
+	font-family: "Constantia","Lucida Bright","Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif;
+	font-style: italic;
+	font-size: 1.2em;
+	padding: 0;
+	margin: 0;
+	}
+	
+#cats li a:link, #cats li a:visited {
+	padding: 12px 7px;
+	margin-bottom: 5px;
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	background: transparent url(../images/menuarrow.png) 225px center no-repeat;
+	}
+	
+#cats li a:link.cat1, #cats li a:visited.cat1 {
+	background-color: #8bc53f;
+	}
+	
+#cats li a:link.cat2, #cats li a:visited.cat2 {
+	background-color: #a87c4f;
+	}
+	
+#cats li a:link.cat3, #cats li a:visited.cat3 {
+	background-color: #754c28;
+	}
+	
+#cats li a:link.catall, #cats li a:visited.catall {
+	background-color: #37b34a;
+	}
+	
+#cats li a:focus, #cats li a:hover, #cats li a:active {
+	background: #d7d7d7 url(../images/menuhover.png) 225px center no-repeat !important;
+	}
+	
+#venue_info {
+	margin-top: 20px;
+	}
+	
+#desc {
+	min-height: 240px;
+	}
+		
+#imagegallery {
+	float: right;
+	width: 310px;
+	margin: 0 0 15px 35px;
+	clear: none;
+	}
+	
+#imagegallery #images {
+	background-color: #fff;
+	margin: 0 !important;
+	height: 213px;
+	width: 310px;
+	overflow: hidden;
+	}
+	
+#imagegallery #images div {
+	width: 3000px;
+	}
+	
+#imagegallery #images img {
+	border: 7px #fff solid;
+	padding: 0;
+	float: left;
+	}
+	
+#imagegallery #carousel {
+	margin: 0;
+	background-color: #d6de23;
+	border-left: 7px #fff solid;
+	border-right: 7px #fff solid;
+	border-bottom: 7px #fff solid;
+	color: #754c28;
+	font-size: 0.9em;
+	position: relative;
+	padding: 5px;
+	font-size: 0.9em;
+	font-style: italic;
+	font-family: "Constantia","Lucida Bright","Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif;
+	}
+	
+#imagegallery #carousel p {
+	margin: 0;
+	padding: 0;
+	}
+	
+#imagegallery #carousel #mover {
+	position: absolute;
+	right: 5px;
+	}
+	
+#imagegallery #carousel #mover #prev {
+	padding-right: 5px;
+	width: 16px;
+	height: 16px;
+	background: transparent url(../images/imageleft.png) center no-repeat;
+	border-right: 1px solid #d6de23;
+	text-indent: -1000em;
+	float: left;
+	}
+	
+#imagegallery #carousel #mover #next {
+	padding-left: 5px;
+	width: 16px;
+	height: 16px;
+	background: transparent url(../images/imageright.png) center no-repeat;
+	text-indent: -1000em;
+	float: left;
+	}
+
+h3.head {
+	border-top: 2px solid #d6de23;
+	padding: 5px;
+	font-style: normal;
+	cursor: pointer;
+	margin: 0;
+	font-size: 1.2em;
+	}
+	
+h3.head span {
+	width: 15px;
+	height: 15px;
+	float: left;
+	margin-right: 10px;
+	}
+	
+h3.head.closed span {
+	background: transparent url(../images/closed.png) center no-repeat;
+	}
+	
+h3.head.open span {
+	background: transparent url(../images/open.png) center no-repeat;
+	}
+	
+h3.head.open {
+	background: transparent url(../images/panelbg.png) repeat;
+	border-bottom: 2px solid #d6de23;
+	}
+
+.panel.hidden {
+	position: absolute;
+	left: -10000em;
+	z-index: -100;
+	top: -10000em;
+	}
+	
+.panel {
+	padding: 10px 34px;
+	background: transparent url(../images/panelbg.png) repeat;
+	margin: 0 !important;
+	}
+	
+.panel ul {
+	margin: 17px 27px;
+	list-style-image: url('../images/bullet.png');
+	padding: 0;
+	}
+	
+.panel ul li {
+	padding-bottom: 3px;
+	}
+	
+.panel table {
+	font-size: 0.9em;
+	}
+	
+.panel table th {
+	background-color: transparent;
+	}
+	
+.panel table td, .panel table th {
+	padding: 4px 7px;
+	}
+	
+#socialmedia {
+	margin-top: 20px;
+	}
+	
+#awards img {
+	margin: 7px 7px 0 0;
+	vertical-align: middle;
+	}
+
+#itemview .field {
+	padding: 0;
+	margin: 0 0 20px 0;
+	border-bottom: 2px solid #d6de23;
+	float: left;
+	width: 100%;
+	}
+	
+.newsarticle {
+	padding: 0 0 12px 0 !important;
+	margin: 0 0 20px 0;
+	border-bottom: 2px solid #d6de23;
+	float: left;
+	width: 100%;
+	}
+	
+.field .fieldimg {
+	float: right;
+	border: 7px solid #fff;
+	clear: both;
+	margin: 7px 0 7px 12px;
+	}
+	
+.field h2, .newsarticle h2 {
+	margin: 0 0 7px 0;
+	padding: 0;
+	font-size: 1.6em;
+	font-style: normal;
+	}
+	
+.field h2 a, .newsarticle h2 a {
+	background: transparent url(../images/listarrow.png) right center no-repeat;
+	padding-right: 22px;
+	}
+	
+.feed-icons {
+	display: none;
+	}
+	
+	
+.current {
+	border-bottom: 2px solid #d6de23;
+	margin-bottom: 20px;
+	}
+	
+.current span {
+	padding: 5px 27px 5px 5px;
+	background: #006838 url(../images/listarrow.png) 97% center no-repeat;
+	font-size: 1.1em;
+	color: #fff;
+	font-style: italic;
+	width: auto;
+	font-family: "Constantia","Lucida Bright","Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif;
+	position: relative;
+	top: 10px;
+	}
+	
+#listmap {
+	float: right;
+	margin-top: -20px;
+	}
+	
+.field .awards {
+	float: left;
+	}
+	
+.field .awards img {
+	width: 40px;
+	height: 60px;
+	margin: 7px 7px 0 0;
+	}
+	
+.space {
+	padding-bottom: 10px;
+	margin-bottom: 30px;
+	border-bottom: 2px solid #38b44a;
+	}
+	
+#subnav #key {
+	font-size: 1.2em;
+	}
+	
+#subnav #key ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	}
+	
+#subnav #key li {
+	margin: 0;
+	padding: 0;
+	font-family: "Constantia","Lucida Bright","Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif;
+	list-style-type: none;
+	}
+	
+#subnav #key li.heading {
+	font-weight: bold;
+	margin: 7px 0;
+	}
+	
+#subnav #key li.heading ul {
+	margin: 7px 0;
+	font-weight: normal !important;
+	}
+	
+#subnav #key li.key {
+	height: 31px;
+	padding: 7px 35px;
+	background-position: left center;
+	background-repeat: no-repeat;
+	}
+	
+#subnav #key li.adventure {
+	background-image: url(/sites/all/modules/gmap/markers/themepark.png);
+	}
+	
+#subnav #key li.history {
+	background-image: url(/sites/all/modules/gmap/markers/museum-historical.png);
+	}
+	
+#subnav #key li.outdoor {
+	background-image: url(/sites/all/modules/gmap/markers/park.png);
+	}
+
+#subnav #key li.art {
+	background-image: url(/sites/all/modules/gmap/markers/art.png);
+	}
+	
+#subnav #key li.coffee {
+	background-image: url(/sites/all/modules/gmap/markers/coffee.png);
+	}
+
+#subnav #key li.bars {
+	background-image: url(/sites/all/modules/gmap/markers/bar.png);
+	}
+	
+#subnav #key li.restaurants {
+	background-image: url(/sites/all/modules/gmap/markers/restaurant.png);
+	}
+	
+#subnav #key li.shopping {
+	background-image: url(/sites/all/modules/gmap/markers/shoppingmall.png);
+	}
+	
+#subnav #key li.camping {
+	background-image: url(/sites/all/modules/gmap/markers/campingsite.png);
+	}
+	
+#subnav #key li.hotels {
+	background-image: url(/sites/all/modules/gmap/markers/hotel.png);
+	}
+	
+#eventview {
+	width: 95%;
+	margin: 10px auto 20px auto;
+	}
+	
+#eventview th {
+	font-family: "Constantia","Lucida Bright","Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif;
+	padding: 12px 4px;
+	text-align: center;
+	background-color: #754c28;
+	color: #fff;
+	font-size: 1.1em;
+	}
+	
+#eventview td {
+	padding: 7px 4px;
+	background: transparent url(../images/panelbg.png) repeat;
+	border-bottom: 2px solid #D6DE23;
+	}
+	
+#eventview tr td.event {
+	font-size: 0.9em;
+	}
+	
+#eventview tr td.date {
+	font-size: 0.8em;
+	font-weight: bold;
+	text-align: center;
+	}
+	
+#eventview tr td.category {
+	font-size: 0.9em;
+	text-align: center;
+	}
+	
+.newsarticle img {
+	margin: 0 12px 12px 12px;
+	}

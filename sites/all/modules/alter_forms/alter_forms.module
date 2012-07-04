@@ -1,0 +1,14 @@
+<?php
+// $Id$
+
+/**
+* @file
+* Alter forms so vocabularies go with the flow!
+*/
+
+function alter_forms_form_alter(&$form, &$form_state, $form_id) {
+if ($form['#id'] == "views-exposed-form-Events-page-1") {
+	$form['#info']['filter-date_filter']['label'] = "Start Date:";
+	$form['date_filter']['value']['#date_format'] = "d/m/Y";
+}
+}

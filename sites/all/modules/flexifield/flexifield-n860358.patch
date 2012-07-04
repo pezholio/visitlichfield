@@ -1,0 +1,16 @@
+Index: modules/filefield/flexifield_filefield.module
+===================================================================
+RCS file: /cvs/drupal-contrib/contributions/modules/flexifield/modules/filefield/Attic/flexifield_filefield.module,v
+retrieving revision 1.1.2.2
+diff -u -p -r1.1.2.2 flexifield_filefield.module
+--- modules/filefield/flexifield_filefield.module	3 Oct 2009 18:14:06 -0000	1.1.2.2
++++ modules/filefield/flexifield_filefield.module	21 Jul 2010 22:41:18 -0000
+@@ -15,7 +15,7 @@ function flexifield_filefield_menu() {
+     'page callback' => 'flexifield_filefield_js',
+     'page arguments' => array(2, 3, 4, 5),
+     'access callback' => 'filefield_edit_access',
+-    'access arguments' => array(3),
++    'access arguments' => array(2, 3),
+     'type' => MENU_CALLBACK,
+   );
+   return $aItems;

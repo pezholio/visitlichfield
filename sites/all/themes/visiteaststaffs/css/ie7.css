@@ -1,0 +1,59 @@
+a.eaststaffs {
+	width: 400px;
+	}
+
+#site-slogan {
+	line-height: 1.2em;
+	top: 40px;
+	}
+	
+#search #edit-submit {
+	padding: 2px 5px;
+	}
+	
+.welcome h3 {
+	font-size: 1.95em;
+	}
+	
+.smallhomeimage {
+	position: absolute;
+	}
+	
+.smallhomeimage.image1 {
+	left: 15px;
+	}
+	
+.smallhomeimage.image2 {
+	left: 160px;
+	}
+	
+.smallhomeimage.image3 {
+	left: 305px;
+	}
+	
+.smallhomeimage.image4 {
+	left: 450px;
+	}
+	
+#foot ul {
+	left: 110px;
+	}
+	
+#foot ul li {
+	margin-right: 10px;
+	}
+	
+#itemview {
+	padding-right: 0;
+	}
+	
+#listmap {
+	float: none;
+	position: absolute;
+	right: 0;
+	}
+	
+#eventsearch legend {
+	position: relative;
+	left: -5px;
+	}

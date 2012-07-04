@@ -1,0 +1,72 @@
+<?php
+/**
+* Implementation of hook_menu_alter().
+*/
+function mysearch_menu_alter(&$items) {
+  $items['search/node/%menu_tail']['page callback'] = '_mysearch_search_view';
+}
+
+function _mysearch_search_view($type = 'node') {
+  // Search form submits with POST but redirects to GET. This way we can keep
+  // the search query URL clean as a whistle:
+  // search/type/keyword+keyword
+  if (!isset($_POST['form_id'])) {
+    if ($type == '') {
+      // Note: search/node can not be a default tab because it would take on the
+      // path of its parent (search). It would prevent remembering keywords when
+      // switching tabs. This is why we drupal_goto to it from the parent instead.
+      drupal_goto('search/node');
+    }
+
+    $keys = search_get_keys();
+    // Only perform search if there is non-whitespace search term:
+    $results = '';
+    if (trim($keys)) {
+      // Log the search keys:
+      watchdog('search', '%keys (@type).', array('%keys' => $keys, '@type' => module_invoke($type, 'search', 'name')), WATCHDOG_NOTICE, l(t('results'), 'search/'. $type .'/'. $keys));
+
+      // Collect the search results:
+      $results = search_data($keys, $type);
+      
+	  // Construct the search form.
+	  $form = drupal_get_form('search_form', NULL, $keys, $type);
+
+      if ($results) {
+        $results = theme('searchpage', t('Search results'), $results, $keys);
+      }
+      else {
+        $results = theme('searchpage', t('Your search yielded no results'), search_help('search#noresults', drupal_help_arg()), $keys);
+      }
+    }
+
+    $output .= $results;
+
+    return $output;
+  }
+
+  return drupal_get_form('search_form', NULL, empty($keys) ? '' : $keys, $type);
+}
+
+/**
+* Implementation of hook_theme().
+*/
+function mysearch_theme() {
+  return array(
+    'searchpage' => array(
+      'template' => 'searchpage',
+      // these variables must be called in the theme function, and will appear in the template as $title, $body, $link
+      'arguments' => array(
+        'title' => null,
+        'content' => null,
+        'keys' => null,
+      ),
+    ),
+    'preprocess_method' => array(
+      'template' => 'searchpage',
+      'arguments' => array('node' => null),
+    ),
+  );
+}
+
+function mysearch_preprocess_searchpage(&$vars) {
+	}

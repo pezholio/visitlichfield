@@ -1,0 +1,19 @@
+.smallhomeimage {
+	position: absolute;
+	}
+	
+.smallhomeimage.image1 {
+	left: 15px;
+	}
+	
+.smallhomeimage.image2 {
+	left: 160px;
+	}
+	
+.smallhomeimage.image3 {
+	left: 305px;
+	}
+	
+.smallhomeimage.image4 {
+	left: 450px;
+	}

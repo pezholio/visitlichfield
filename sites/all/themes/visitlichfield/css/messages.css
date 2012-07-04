@@ -1,0 +1,60 @@
+/* $Id: messages.css,v 1.3 2009/08/12 08:37:42 johnalbin Exp $ */
+
+/**
+ * @file
+ * Message Styling
+ *
+ * Sensible styling for Drupal's error/warning/status messages.
+ */
+
+
+div.warning,
+div.error /* Important messages (status, warning, and error) for the user */ {
+	width: 250px;
+	background-color: #fff;
+	color: #111;
+	position: fixed;
+	top: 20px;
+	right: 10px;
+	z-index: 1000;
+	background-color: #000;
+	opacity:0.7;
+	filter:alpha(opacity=70);
+	color: #fff !important;
+	border: 2px solid #fff;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+div.messages /* Normal priority messages */ {
+	position: absolute;
+	z-index: 2500;
+}
+
+div.status /* Normal priority messages */ {
+}
+
+div.warning /* Medium priority messages */ {
+
+}
+
+div.warning,
+tr.warning {
+
+}
+
+div.error /* High priority messages. See also the .error declaration in pages.css. */ {
+
+}
+
+div.error,
+tr.error {
+
+}
+
+div.messages ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}

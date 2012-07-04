@@ -1,0 +1,48 @@
+<?php
+// $Id: save_as_draft.install,v 1.3 2009/05/21 13:57:41 realityloop Exp $
+
+/**
+ * @file
+ * Install database tables for save_as_draft module.
+ */
+
+/**
+ * Implementation of hook_schema().
+ */
+function save_as_draft_schema() {
+  $schema['save_as_draft'] = array(
+    'description' => t('TODO'),
+    'fields' => array(
+      'nid' => array(
+        'description' => t('TODO'),
+        'type' => 'int',
+        'unsigned' => 1,
+        'not null' => TRUE,
+      ),
+      'save_as_draft' => array(
+        'description' => t('TODO'),
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implementation of hook_install().
+ */
+function save_as_draft_install() {
+  // Create tables.
+  drupal_install_schema('save_as_draft');
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function save_as_draft_uninstall() {
+  // Remove tables.
+  drupal_uninstall_schema('save_as_draft');
+}

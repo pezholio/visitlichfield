@@ -1,0 +1,207 @@
+/* Visit Lichfield CSS */
+
+#header .section {
+	background: transparent url(../images/headerbg.png) top repeat-x !important;
+	position: relative;
+	}
+	
+#logo img {
+	margin: 30px 0 33px 25px;
+	}
+	
+#site-name, .nice-menu-hide-title {
+	display: none;
+	}
+	
+#nice-menu-1 {
+	background: transparent url(../images/menubg.png) top repeat-x !important;
+	padding: 0 14px 0 0 !important;
+	margin: 0 !important;
+	font-size: 0.9em !important;
+	width: 942px;
+	left: -2px;
+	}
+	
+ul.nice-menu li {
+	background-color: transparent !important;
+	border: none;
+	}
+	
+ul.nice-menu li a {
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 14px 0 14px 14px;
+	}
+	
+ul.nice-menu-down li.menuparent {
+	background: none !important;
+	}
+	
+.menuparent a {
+	background: none !important;
+	}
+	
+ul.nice-menu-down li ul {
+	margin-top: 21px;
+	border-top: 0 !important;
+	}
+	
+ul.nice-menu-down li ul li {
+	border-bottom: 1px solid #fff;
+	}
+	
+ul.nice-menu-down li ul li a:link, ul.nice-menu-down li ul li a:visited {
+	background-color: #64659d !important;
+}
+
+ul.nice-menu-down li ul li a:focus, ul.nice-menu-down li ul li a:hover, ul.nice-menu-down li ul li a:active {
+	background-color: #a993ba !important;
+	}
+	
+#homepage h2 {
+	background: transparent url(../images/titlebg.png) repeat-x;
+	color: #fff;
+	font-size: 1.1em;
+	height: 36px;
+	vertical-align: middle;
+	padding: 12px 0 0 22px;
+	margin: 0;
+	}
+	
+#site-slogan {
+	color: #fff;
+	font-size: 1.3em;
+	margin-top: 25px;
+	font-weight: bold;
+	position: absolute;
+	right: 20px;
+	}
+	
+#footer .section {
+	background: transparent url(../images/footerbg.png) top repeat-x !important;
+	position: relative;
+	height: 60px;
+	}
+	
+#secondary-menu {
+	font-size: 0.8em;
+	position: absolute;
+	right: 20px;
+	margin-top: 15px;
+	}
+	
+#secondary-menu a:link, #secondary-menu a:visited {
+	color: #fff;
+	text-decoration: none;
+}
+
+#secondary-menu a:focus, #secondary-menu a:hover, #secondary-menu a:active {
+	text-decoration: underline;
+}
+
+.flickr-photo-img {
+	width: 55px;
+	height: 55px;
+	margin: 0 5px 5px 0 !important;
+	border: 1px #fff solid;
+	padding: 0;
+	}
+	
+.flickr {
+	background-color: #8a6ca0 !important;
+	padding: 7px 0 2px 10px;
+	margin: 0 !important;
+	}
+
+.flickr h2 {
+	display: none;
+	}
+/*
+	SLIDER
+*/
+.slider-wrap								{ width: 100%; position: relative; height: 252px; margin: 0 0 5px 0 !important;}			
+.stripViewer .panelContainer 
+.panel ul									{ text-align: left; margin: 0 15px 0 30px; }
+.stripViewer								{ position: relative; overflow: hidden; width: 485px; height: 258px; }
+.stripViewer .panelContainer				{ position: relative; left: 0; top: 0; }
+.stripViewer .panelContainer .panel			{ float: left; height: 100%; position: relative; width: 485px; }
+.stripNavL, .stripNavR, .stripNav			{ display: none; }
+.nav-thumb 									{ border: 1px solid #fff; float: left; width: 40px; height: 40px; }
+#movers-row 								{ position: absolute; right: 10px; width: 300px; bottom: 10px; width: 275px; }
+.cross-link									{ width: 40px; display: block; position: relative; z-index: 9999; float: left; padding-top: 5px; margin-right: 5px; border: none; }
+.active-thumb 								{ background: transparent url(../images/point.png) top center no-repeat; }
+
+.upcoming {
+	font-size: 0.8em;
+	padding: 10px;
+	color: #222;
+	}
+	
+.upcoming .views-row {
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 2px solid #866EA2;
+	}
+	
+.upcoming .views-field-field-dates-value {
+	font-weight: bold;
+	color: #866EA2;
+	margin-bottom: 5px;
+	}
+	
+.upcoming a:link, .upcoming a:visited {
+	color: #222;
+	text-decoration: none;
+	border-bottom: 1px dotted #222;
+	}
+	
+.upcoming a:focus, .upcoming a:hover, .upcoming a:active {
+	border-bottom: 1px solid #222;
+	}
+	
+.hp_feature {
+	width: 241px;
+	float: left;
+	margin-bottom: 5px;
+	}
+	
+.hp_feature.feature1, .hp_feature.feature3 {
+	margin-right: 3px;
+	}
+	
+.hp_feature h2 {
+	margin: 0 !important;
+	}
+	
+.hp_feature .featureinner {
+	font-size: 0.75em;
+	border: 1px #ddd solid;
+	margin-top: 5px;
+	height: 155px;
+	overflow: hidden;
+	}
+	
+.hp_feature .featureinner img {
+	float: left;
+	margin-right: 7px;
+	}
+	
+.hp_feature .featuretext {
+	width: 100px;
+	padding: 2px;
+	float: left;
+	}
+	
+.hp_feature .featuretext p {
+	margin: 0;
+	padding: 0;
+	}
+	
+.panels-flexible-column-inside  {
+	padding: 0 !important;
+	}
+	
+.head {
+	cursor: pointer;
+	}

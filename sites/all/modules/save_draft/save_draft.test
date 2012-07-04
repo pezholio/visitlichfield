@@ -1,0 +1,72 @@
+<?php
+
+class SaveDraftTestCase extends DrupalWebTestCase {
+
+  protected $admin;
+
+  public static function getInfo() {
+    return array(
+      'name' => 'Save draft',
+      'description' => 'Make sure the node form still works with Save Draft enabled.',
+      'group' => 'Save draft',
+    );
+  }
+
+  public function setUp() {
+    parent::setUp(array('save_draft'));
+    $this->admin = $this->drupalCreateUser(array('create story content', 'edit any story content', 'administer nodes', 'save draft'));
+    $this->drupalLogin($this->admin);
+    $this->title_key = "title";
+    $this->body_key = "body";
+  }
+
+  /**
+   * Return a basic $edit array that can be used to save a node.
+   */
+  public function getNodeArray() {
+    $edit = array();
+    $edit[$this->title_key] = $this->randomName(8);
+    $edit[$this->body_key] = $this->randomName(8);
+    return $edit;
+  }
+
+  /**
+   * Make sure nodes save with the right publication status.
+   */
+  public function testNodeSave() {
+    // Publish a node, and make sure it's published.
+    $edit = $this->getNodeArray();
+    $this->drupalPost('node/add/story', $edit, t('Publish'));
+    $node = $this->drupalGetNodeByTitle($edit[$this->title_key]);
+    $this->assertEqual($node->status, 1, t('Node saved correctly.'));
+
+    // Unpublish it, and make sure it's unpublished.
+    $this->drupalPost("node/$node->nid/edit", array(), t('Unpublish'));
+    $node = node_load($node->nid, NULL, TRUE);
+    $this->assertEqual($node->status, 0, t('Node unpublished correctly.'));
+
+    // Save a new node as a draft, and make sure it's unpublished.
+    $edit = $this->getNodeArray();
+    $this->drupalPost('node/add/story', $edit, t('Save as draft'));
+    $node = $this->drupalGetNodeByTitle($edit[$this->title_key]);
+    $this->assertEqual($node->status, 0, t('Node saved correctly as draft.'));
+
+    // Publish the node, and make sure it's published.
+    $this->drupalPost("node/$node->nid/edit", array(), t('Publish'));
+    $node = node_load($node->nid, NULL, TRUE);
+    $this->assertEqual($node->status, 1, t('Node published correctly.'));
+  }
+
+  /**
+   * Make sure node validation still runs even after we've altered the form.
+   */
+  public function testNodeValidation() {
+    // Try to create a node with a nonexistent author.
+    $edit = $this->getNodeArray();
+    // This username does not exist.
+    $edit['name'] = $this->randomName(8);
+    $this->drupalPost('node/add/story', $edit, t('Publish'));
+    // We should not have been allowed to save the node.
+    $this->assertRaw(t('The username %name does not exist.', array('%name' => $edit['name'])));
+  }
+}
